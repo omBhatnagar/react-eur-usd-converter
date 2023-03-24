@@ -50,13 +50,14 @@ const Converter = () => {
 		const record = {
 			fx,
 			currencyToggle,
+			overrideFx,
 			amount,
 			result,
 		};
 		_history.unshift(record);
 		setHistory(_history);
 		console.log({ history });
-	}, [amount, currencyToggle, fx, history, result]);
+	}, [amount, overrideFx, currencyToggle, fx, history, result]);
 
 	return (
 		<div>

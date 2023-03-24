@@ -5,6 +5,7 @@ const History = ({ historyData }) => {
 		"No.",
 		"Fx",
 		"Override",
+		"USD to EUR",
 		"Initial Amount",
 		"Converted Amount",
 	];

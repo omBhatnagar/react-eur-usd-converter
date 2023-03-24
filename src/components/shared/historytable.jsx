@@ -29,6 +29,7 @@ const HistoryTable = ({ tableHeaders, tableData }) => {
 								>
 									{item.fx}
 								</th>
+								<td class='px-6 py-4'>{item.overrideFx ? "True" : "False"}</td>
 								<td class='px-6 py-4'>
 									{item.currencyToggle ? "True" : "False"}
 								</td>
