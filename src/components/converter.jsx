@@ -62,7 +62,7 @@ const Converter = () => {
 	return (
 		<div>
 			<div className='w-1/2 mx-auto mt-16 mb-6 rounded-lg shadow bg-gray-800 border-gray-700'>
-				<h5 class='mb-2 text-2xl font-bold tracking-tight text-white text-center pt-6'>
+				<h5 className='mb-2 text-2xl font-bold tracking-tight text-white text-center pt-6'>
 					EUR to USD Converter
 				</h5>
 				<div className='w-full mx-auto flex justify-center items-center pb-6'>
@@ -79,7 +79,7 @@ const Converter = () => {
 							title='Custom Fx'
 							disabled={!overrideFx}
 						/>
-						<TextInput value={result} title='Result' />
+						<TextInput value={result} title='Result' readOnly={true} />
 						<Button title='Convert' onClick={convertCurrency} />
 					</div>
 					<div>
