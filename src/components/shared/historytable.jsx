@@ -1,18 +1,18 @@
 const HistoryTable = ({ tableHeaders, tableData }) => {
 	return (
-		<div class='relative overflow-x-auto shadow-md sm:rounded-lg my-16'>
-			<table class='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
-				<caption class='p-5 text-3xl font-semibold text-left text-white bg-gray-800'>
+		<div className='relative overflow-x-auto shadow-md sm:rounded-lg my-16'>
+			<table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
+				<caption className='p-5 text-3xl font-semibold text-left text-white bg-gray-800'>
 					History
-					<p class='mt-1 text-sm font-normal text-gray-500 dark:text-gray-400'>
+					<p className='mt-1 text-sm font-normal text-gray-500 dark:text-gray-400'>
 						Browse the latest five conversions made with this converter,
 						updating in real time.
 					</p>
 				</caption>
-				<thead class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+				<thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
 					<tr>
-						{tableHeaders?.map((header) => (
-							<th scope='col' class='px-6 py-3'>
+						{tableHeaders?.map((header, index) => (
+							<th scope='col' className='px-6 py-3' key={index}>
 								{header}
 							</th>
 						))}
@@ -21,20 +21,25 @@ const HistoryTable = ({ tableHeaders, tableData }) => {
 				<tbody>
 					{tableData &&
 						tableData.map((item, index) => (
-							<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-								<td class='px-6 py-4'>#{index + 1}</td>
+							<tr
+								className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'
+								key={index}
+							>
+								<td className='px-6 py-4'>#{index + 1}</td>
 								<th
 									scope='row'
-									class='px-6 py-4 font-medium whitespace-nowrap text-white'
+									className='px-6 py-4 font-medium whitespace-nowrap text-white'
 								>
 									{item.fx}
 								</th>
-								<td class='px-6 py-4'>{item.overrideFx ? "True" : "False"}</td>
-								<td class='px-6 py-4'>
+								<td className='px-6 py-4'>
+									{item.overrideFx ? "True" : "False"}
+								</td>
+								<td className='px-6 py-4'>
 									{item.currencyToggle ? "True" : "False"}
 								</td>
-								<td class='px-6 py-4 text-white'>{item.amount}</td>
-								<td class='px-6 py-4 text-white'>{item.result}</td>
+								<td className='px-6 py-4 text-white'>{item.amount}</td>
+								<td className='px-6 py-4 text-white'>{item.result}</td>
 							</tr>
 						))}
 				</tbody>
