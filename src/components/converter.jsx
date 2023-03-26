@@ -18,6 +18,7 @@ const Converter = () => {
 
 	// State change handlers
 	const handleAmountChange = (e) => setAmount(e.target.value);
+	const handleResultChange = (e) => setResult(e.target.value);
 	const handleCurrencyToggleChange = () =>
 		setCurrencyToggle((prevToggle) => !prevToggle);
 	const handleOverrideFx = () => setOverrideFx((prevToggle) => !prevToggle);
@@ -31,8 +32,8 @@ const Converter = () => {
 
 		// Convert USD to EUR if toggled
 		if (!currencyToggle) return setResult(amount * _fx);
-		setResult(amount / _fx);
-	}, [amount, fx, currencyToggle, customFx, overrideFx]);
+		setAmount(result / _fx);
+	}, [amount, fx, currencyToggle, customFx, overrideFx, result]);
 
 	// Update fx every 3 seconds
 	useEffect(() => {
@@ -56,7 +57,6 @@ const Converter = () => {
 		};
 		_history.unshift(record);
 		setHistory(_history);
-		console.log({ history });
 	}, [amount, overrideFx, currencyToggle, fx, history, result]);
 
 	return (
@@ -71,7 +71,7 @@ const Converter = () => {
 						<TextInput
 							value={amount}
 							onChange={handleAmountChange}
-							title='Enter Amount'
+							title='EUR'
 						/>
 						<TextInput
 							value={customFx}
@@ -79,7 +79,11 @@ const Converter = () => {
 							title='Custom Fx'
 							disabled={!overrideFx}
 						/>
-						<TextInput value={result} title='Result' readOnly={true} />
+						<TextInput
+							value={result}
+							onChange={handleResultChange}
+							title='USD'
+						/>
 						<Button title='Convert' onClick={convertCurrency} />
 					</div>
 					<div>
