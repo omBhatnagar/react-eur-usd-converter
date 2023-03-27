@@ -38,7 +38,7 @@ const Converter = () => {
 	// Update fx every 3 seconds
 	useEffect(() => {
 		setTimeout(() => {
-			setFx((prevFx) => prevFx + (Math.random() * 0.11 - 0.05));
+			setFx((prevFx) => prevFx + (Math.random() * 0.11 - 0.05)); // * 0.11 to set range from 0 to 0.1 and then - 0.05 to set range to -0.05 to +0.05
 		}, 3000);
 	}, [fx]);
 
@@ -49,11 +49,11 @@ const Converter = () => {
 	useEffect(() => {
 		let _history = history;
 		const record = {
-			fx,
+			fx: parseFloat(fx).toFixed(2),
 			currencyToggle,
 			overrideFx,
-			amount,
-			result,
+			amount: parseFloat(amount).toFixed(2),
+			result: parseFloat(result).toFixed(2),
 		};
 		_history.unshift(record);
 		setHistory(_history);
@@ -67,7 +67,7 @@ const Converter = () => {
 				</h5>
 				<div className='w-full mx-auto flex justify-center items-center pb-6'>
 					<div className='flex flex-col justify-center items-center gap-4 w-2/3'>
-						<TextInput value={fx} title='Fx Rate' />
+						<TextInput value={parseFloat(fx).toFixed(2)} title='Fx Rate' />
 						<TextInput
 							value={amount}
 							onChange={handleAmountChange}
