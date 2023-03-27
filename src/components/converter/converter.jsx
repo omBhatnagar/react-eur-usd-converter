@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 
-import TextInput from "./shared/textinput";
-import Button from "./shared/button";
-import Toggle from "./shared/toggle";
-import History from "./history";
+import TextInput from "../shared/textinput";
+import Button from "../shared/button";
+import Toggle from "../shared/toggle";
+import History from "../history/history";
 
-import percentageDifference from "../utils/precentageDifference";
+import percentageDifference from "../../utils/precentageDifference";
 
 const Converter = () => {
 	const [currencyToggle, setCurrencyToggle] = useState(false);
@@ -72,17 +72,20 @@ const Converter = () => {
 							value={amount}
 							onChange={handleAmountChange}
 							title='EUR'
+							name='eur'
 						/>
 						<TextInput
 							value={customFx}
 							onChange={handleCustomFxChange}
 							title='Custom Fx'
+							name='customFx'
 							disabled={!overrideFx}
 						/>
 						<TextInput
 							value={result}
 							onChange={handleResultChange}
 							title='USD'
+							name='usd'
 						/>
 						<Button title='Convert' onClick={convertCurrency} />
 					</div>

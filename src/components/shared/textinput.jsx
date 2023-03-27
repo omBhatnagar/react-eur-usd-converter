@@ -1,4 +1,4 @@
-const TextInput = ({ title, value, onChange, disabled, readOnly }) => {
+const TextInput = ({ title, value, onChange, disabled, readOnly, name }) => {
 	return (
 		<div className='w-5/6'>
 			<label
@@ -9,6 +9,7 @@ const TextInput = ({ title, value, onChange, disabled, readOnly }) => {
 			</label>
 			<input
 				disabled={disabled}
+				name={name}
 				type='text'
 				id={title}
 				value={value}

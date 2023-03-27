@@ -1,4 +1,4 @@
-import HistoryTable from "./shared/historytable";
+import HistoryTable from "../shared/historytable";
 
 const History = ({ historyData }) => {
 	const tableHeaders = ["No.", "Fx", "Override", "USD to EUR", "EUR", "USD"];
